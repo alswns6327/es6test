@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>01-01</title>
+    </head>
+    <body>
+        <div id="app">
+            <h2 v-html="message"></h2>
+            <input type="text" v-model="message2"/>
+            <input type="text" v-bind:value="message3"/>
+            <input type="text" :value="message4"/>
+            <input v-show="message2 == 'showInput'" placeholder="hi"/>
+            <input v-if="message2 == 'showInput2'" placeholder="hi2"/>
+            <input v-else-if="message2 == 'showInput3'" placeholder="hi3"/>
+            <input v-else placeholder="hi4"/>
+            <div>
+                <ul>
+                    <li v-for="(a, index) in aa" :key="a.no">
+                        {{index}}
+                    </li>
+                </ul>
+                <ol>
+                    <li v-for="(val, key, index) in bb" v-text="index" :key="key">
+                        
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://unpkg.com/vue"></script>
+        <script type="text/javascript">
+            var model = {
+                message: "Hello Vue3!", message2 : "test", message3 : "test3" , message4 : "test4"
+                , aa: [{no : 1, text : '일'},{no : 2, text : '이'},{no : 3, text : '삼'},{no : 4, text : '사'}]
+                , bb: {a : '에이', b : '비' , c : '씨'}
+            };
+            var vm = Vue.createApp({
+                name : "App",
+                data() {
+                    return model;
+                }
+            }).mount("#app");
+        </script>
+    </body>
+</html>
