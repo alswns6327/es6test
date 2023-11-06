@@ -4,10 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>01-01</title>
+        <style>
+            [v-cloak] {display: none;}
+        </style>
     </head>
     <body>
-        <div id="app">
+        <div id="app" v-cloak>
             <h2 v-html="message"></h2>
+            <div v-pre>{{message}}</div>
+            <div v-once>{{message}}</div>
             <input type="text" v-model="message2"/>
             <input type="text" v-bind:value="message3"/>
             <input type="text" :value="message4"/>
