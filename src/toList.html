@@ -34,7 +34,7 @@
                             <li v-for="to in todoList" @click="toggleCompleted(to.id, to.completed)" :key="to.id" :class="[to.completed ? completedLi : notCompletedLi]" class="list-group-item">
                               <span v-if="to.completed" class="todo-done pointer">{{to.todo}} (완료)</span>
                               <span v-else class="pointer">{{to.todo}}</span>
-                              <span v-if="!to.completed" class="float-end badge bg-secondary pointer" @click="deleteTodo(to.id)">삭제</span>
+                              <span v-if="!to.completed" class="float-end badge bg-secondary pointer" @click.stop="deleteTodo(to.id)">삭제</span>
                             </li>
                           </ul>
                         </div>
